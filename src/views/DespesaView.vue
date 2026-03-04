@@ -1,3 +1,8 @@
+<script setup>
+    const title = ref('');
+    const value = ref('');
+    const category = ref('');
+</script>
 <template>
     <div class="panel">
             <h2>Nova despesa</h2>

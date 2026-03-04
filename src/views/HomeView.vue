@@ -1,4 +1,6 @@
 <script setup>
+import { UseExpanse } from '../composable/UseExpanse';
+const { total, filtered, removeExpense } = UseExpanse();
 
 </script>
 <template>
