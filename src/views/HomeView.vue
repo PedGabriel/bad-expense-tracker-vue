@@ -1,6 +1,15 @@
 <script setup>
+import { computed, watch } from 'vue';
 import { UseExpanse } from '../composable/UseExpanse';
-const { total, filtered, removeExpense } = UseExpanse();
+const { total, filter, removeExpense, expenses } = UseExpanse();
+    
+    const filtered = computed(() => {
+        console.log(`filtro final yeah:   ${filter.value}`)
+        if (filter.value === 'all') {
+            return expenses.value;
+        }
+        return expenses.value.filter((item) => item.category === filter.value);
+    });
 
 </script>
 <template>
@@ -29,6 +38,11 @@ const { total, filtered, removeExpense } = UseExpanse();
 
                 <div class="summary">
                     Total do dia: {{ total }}
+                </div>
+                <div class="botaoAdicionar">
+                    <router-link to="/despesas">
+                        <button class="small-btn">Adicionar</button>
+                    </router-link>
                 </div>
             </div>
 </template>

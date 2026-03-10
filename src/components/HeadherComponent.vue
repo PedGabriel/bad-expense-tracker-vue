@@ -1,8 +1,9 @@
 <script setup>
-const emit = defineEmits(['filter']);
+import { UseExpanse } from '../composable/UseExpanse';
+const {setFilter} = UseExpanse();
 
 function filtrar(categoria) {
-    emit('filter', categoria);
+    setFilter(categoria);
 }
 </script>
 

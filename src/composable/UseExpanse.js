@@ -1,34 +1,31 @@
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 
-
-
-export function UseExpanse(){
-        const expenses = ref([
+const expenses = ref([
         { id: 1, title: 'Cafe', value: 6, category: 'food' },
         { id: 2, title: 'Onibus', value: 4.5, category: 'transport' },
         { id: 3, title: 'Lanche', value: 12, category: 'food' },
     ]);
 
+    const title = ref('');
+    const value = ref('');
+    const category = ref('');
+
     const filter = ref('all');
+
+export function UseExpanse(){
+        
+
 
     function setFilter(newFilter) {
         filter.value =  newFilter;
         console.log('chego ', filter.value)
     }
 
-    const filtered = computed(() => {
-        console.log(`filtro final yeah:   ${filter.value}`)
-        if (filter.value === 'all') {
-            return expenses.value;
-        }
-        return expenses.value.filter((item) => item.category === filter.value);
-    });
-
     const total = computed(() => {
         return expenses.value.reduce((sum, item) => sum + Number(item.value || 0), 0);
     });
 
-    function addExpense() {
+    function addExpense(titulo, valor, categoria) {
         if (!title.value.trim() || !value.value.trim()) {
             alert('Preencha tudo');
             return;
@@ -57,12 +54,14 @@ export function UseExpanse(){
 
     return{
         total,
-        filtered,
         filter,
         addExpense,
         removeExpense,
         clearAll,
-        filter,
         setFilter,
+        expenses,
+        title,
+        value,
+        category
     }
 }
