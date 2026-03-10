@@ -1,13 +1,13 @@
 <script setup>
 import HeaderComponent from './components/HeadherComponent.vue';
 import { Usefiltro } from './composable/UseFiltro';
+import { UseExpanse } from './composable/UseExpanse';
 
-const {setFilter } = Usefiltro();
+const {setFilter} = UseExpanse();
 
 
 function filtrar(categoria) {
     setFilter(categoria);
-    console.log('Filtrando por categoria:', categoria);
 }
 </script>
 

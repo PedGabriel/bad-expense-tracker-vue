@@ -5,7 +5,7 @@ const filter = ref('all');
 
 function setFilter(newFilter) {
     filter.value = newFilter;
-    console.log('chego ', newFilter)
+    console.log('chego ', filter.value)
 }
     return {
         filter,

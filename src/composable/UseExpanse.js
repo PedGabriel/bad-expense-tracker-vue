@@ -1,7 +1,6 @@
 import { computed, ref } from 'vue';
-import { Usefiltro } from './UseFiltro';
 
-const { filter } = Usefiltro();
+
 
 export function UseExpanse(){
         const expenses = ref([
@@ -10,7 +9,15 @@ export function UseExpanse(){
         { id: 3, title: 'Lanche', value: 12, category: 'food' },
     ]);
 
+    const filter = ref('all');
+
+    function setFilter(newFilter) {
+        filter.value =  newFilter;
+        console.log('chego ', filter.value)
+    }
+
     const filtered = computed(() => {
+        console.log(`filtro final yeah:   ${filter.value}`)
         if (filter.value === 'all') {
             return expenses.value;
         }
@@ -54,6 +61,8 @@ export function UseExpanse(){
         filter,
         addExpense,
         removeExpense,
-        clearAll
+        clearAll,
+        filter,
+        setFilter,
     }
 }
