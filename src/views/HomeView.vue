@@ -1,7 +1,7 @@
 <script setup>
-import { computed, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { UseExpanse } from '../composable/UseExpanse';
-const { total, filter, removeExpense, expenses } = UseExpanse();
+const { total, filter, removeExpense, expenses, addExpense, clearAll, title, value, category } = UseExpanse();
     
     const filtered = computed(() => {
         console.log(`filtro final yeah:   ${filter.value}`)
@@ -11,9 +11,14 @@ const { total, filter, removeExpense, expenses } = UseExpanse();
         return expenses.value.filter((item) => item.category === filter.value);
     });
 
+    const ligar = ref(false);
+
+    function ligarAdicionar() {
+        ligar.value = !ligar.value;
+    }
 </script>
 <template>
-    <div class="panel">
+    <div class="panel" v-if="ligar == false">
                 <h2>Lista do dia</h2>
                 <table class="table">
                     <thead>
@@ -39,10 +44,27 @@ const { total, filter, removeExpense, expenses } = UseExpanse();
                 <div class="summary">
                     Total do dia: {{ total }}
                 </div>
-                <div class="botaoAdicionar">
-                    <router-link to="/despesas">
-                        <button class="small-btn">Adicionar</button>
-                    </router-link>
-                </div>
             </div>
+            <div v-else>
+        <h2>Nova despesa</h2>
+                    <input v-model="title" class="input" placeholder="Descricao" />
+                    <input v-model="value" class="input" placeholder="Valor" />
+                    <select name="categoria" id="categoria" v-model="category">
+                        <option value="food">Comida</option>
+                        <option value="transport">Transporte</option>
+                        <option value="other">Outros</option>
+                    </select>
+                    <div class="row">
+                        <button class="small-btn" @click="addExpense">Add</button>
+                        <button class="small-btn" @click="clearAll">Limpar tudo</button>
+                    </div>
+            </div>
+            <div class="botaoTrocar">
+                    <button @click="ligarAdicionar()" v-if="ligar == false">
+                        Adicionar nova despesa
+                    </button>
+                    <button @click="ligarAdicionar()" v-else>
+                        Voltar para lista
+                    </button>
+                </div>
 </template>
