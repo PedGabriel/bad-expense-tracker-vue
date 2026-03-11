@@ -41,7 +41,7 @@ a{
 }
 a:active{
     transform: scale(0.92);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
     }
 </style>

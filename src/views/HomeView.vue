@@ -36,7 +36,7 @@ const { total, filter, removeExpense, expenses, addExpense, clearAll, title, val
                             <td>{{ item.category }}</td>
                             <td>{{ item.value }}</td>
                             <td>
-                                <button class="small-btn" @click="removeExpense(item.id)">X</button>
+                                <a class="small-btn" @click="removeExpense(item.id)">X </a>
                             </td>
                         </tr>
                     </tbody>
@@ -108,11 +108,24 @@ const { total, filter, removeExpense, expenses, addExpense, clearAll, title, val
         font-size: 1.4rem ;
         color: #003C80;
         font-weight: 600;
+        cursor: pointer;
+
     }
     div.botaoTrocar{
         margin-top: 4vw;
         text-align: center;
         font-weight: 700;
         font-size: 1.4rem;
+        cursor: pointer;
+    }
+    td a {
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    td a:active{
+        transform: scale(0.8);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
     }
 </style>
