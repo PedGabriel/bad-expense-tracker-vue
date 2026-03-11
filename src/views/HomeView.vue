@@ -18,8 +18,9 @@ const { total, filter, removeExpense, expenses, addExpense, clearAll, title, val
     }
 </script>
 <template>
+     <h1>Controle de Gastos Rapido</h1>
     <div class="panel" v-if="ligar == false">
-                <h2>Lista do dia</h2>
+                <h2>Lista do dia:</h2>
                 <table class="table">
                     <thead>
                         <tr>
@@ -60,11 +61,58 @@ const { total, filter, removeExpense, expenses, addExpense, clearAll, title, val
                     </div>
             </div>
             <div class="botaoTrocar">
-                    <button @click="ligarAdicionar()" v-if="ligar == false">
+                    <a @click="ligarAdicionar()" v-if="ligar == false">
                         Adicionar nova despesa
-                    </button>
-                    <button @click="ligarAdicionar()" v-else>
+                    </a>
+                    <a @click="ligarAdicionar()" v-else>
                         Voltar para lista
-                    </button>
+                    </a>
                 </div>
 </template>
+<style scoped>
+ h1 {
+    text-align: center;
+    color: #003C80;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 7vw;
+ }
+ h2{
+      color: #003C80;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 700;
+ }
+ table {
+        width: 100%;
+        border-collapse: separate; 
+        border-spacing: 0 10px; 
+    }
+    
+    th {
+        padding: 15px; 
+        text-align: center;   
+    }
+    
+    td {
+        padding: 15px; 
+        text-align: center;   
+    }
+    tbody{
+        background-color: #003C80;
+        color: #EBF4FF;;
+    }
+    div.summary{
+        margin-top: 3vw;
+        text-align: center;
+        font-size: 1.4rem ;
+        color: #003C80;
+        font-weight: 600;
+    }
+    div.botaoTrocar{
+        margin-top: 4vw;
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.4rem;
+    }
+</style>

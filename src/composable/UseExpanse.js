@@ -1,9 +1,7 @@
 import { computed, ref, watch } from 'vue';
 
 const expenses = ref([
-        { id: 1, title: 'Cafe', value: 6, category: 'food' },
-        { id: 2, title: 'Onibus', value: 4.5, category: 'transport' },
-        { id: 3, title: 'Lanche', value: 12, category: 'food' },
+        
     ]);
 
     const title = ref('');

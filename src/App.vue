@@ -3,6 +3,7 @@ import HeaderComponent from './components/HeadherComponent.vue';
 </script>
 
 <template>
+    <html>
     <div class="app">
         
         <HeaderComponent
@@ -12,5 +13,13 @@ import HeaderComponent from './components/HeadherComponent.vue';
             <RouterView />
         </div>
     </div>
+    </html>
 </template>
+<style scoped>
+.layout {
+    margin-top: 30vw; 
+    padding: 16px;
+}
+
+</style>
 
